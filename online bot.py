@@ -29,7 +29,7 @@ async def update_statuses():
             "Elinalise": "22a4e5b7-22c6-4794-9bf5-8c2753a3d0b6"
         }
         for username, uuid in users.items():
-            response = requests.get(f"https://api.hypixel.net/v2/status?key=edbb7939-0544-40cc-b41b-67678e23a85b&uuid={uuid}").json().get("session", {})
+            response = requests.get(f"https://api.hypixel.net/v2/status?key={process.env.KEY}&uuid={uuid}").json().get("session", {})
             if response:
                 gameType = response.get("gameType", "Unknown")
                 if gameType.lower() == "unknown":
